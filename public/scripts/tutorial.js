@@ -19,13 +19,13 @@ var CommentBox = React.createClass({
       dataType: 'json',
       type: 'POST',
       data: comment,
-      success: function (data) {
+      success: function(data) {
         this.setState({data: data});
       }.bind(this),
-      error: function (xhr, status, err) {
-        console.err(this.props.url, status, err.toString());
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
       }.bind(this)
-    })
+    });
   },
 
   getInitialState: function () {
@@ -68,15 +68,15 @@ var CommentList = React.createClass({
 var CommentForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
-    var author = React.findDOMNode(this.refs.author)
+    var author = React.findDOMNode(this.refs.author).value.trim();
     var text = React.findDOMNode(this.refs.text).value.trim();
     if (!text || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: tetx});
+    this.props.onCommentSubmit({author: author, text: text});
     React.findDOMNode(this.refs.author).value = '';
     React.findDOMNode(this.refs.text).value = '';
-  }
+  },
 
   render: function () {
     return (
