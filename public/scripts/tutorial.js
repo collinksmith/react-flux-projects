@@ -60,7 +60,7 @@ var CommentList = React.createClass({
           </Comment>
         );
       });
-    return (  
+    return (
       <div className="commentList">
         {commentNodes}
       </div>
@@ -93,11 +93,16 @@ var CommentForm = React.createClass({
 });
 
 var Comment = React.createClass({
+  handleClick: function (e) {
+    e.preventDefault();
+    alert('hi');
+  },
+
   render: function () {
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return (
       <div className="comment">
-        <h2 className="commentAuthor">
+        <h2 className="commentAuthor" onClick={this.handleClick}>
           {this.props.author}
         </h2>
         <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
