@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test React Site</title>
+    <script src="https://fb.me/react-0.14.0.min.js"></script>
+    <script src="https://fb.me/react-dom-0.14.0.min.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  </head>
+  <body>
+    <div id="my-component"></div>
+
+    <script type="text/jsx">
+    var ClickCounter = React.createClass({
+    getInitialState: function(){
+      return {count: 0};
+    },
+    click: function(event){
+      event.preventDefault();
+      this.setState({count: this.state.count + 1});
+    },
+    render: function(){
+      return (
+        <div>
+          <button onClick={this.click}>CLICK ME</button>
+          <span>{this.state.count}</span>
+        </div>
+      );
+    }
+  });
+
+      React.render(
+        <ClickCounter />,
+        document.getElementById('my-component')
+      )
+    </script>
+  </body>
+</html>
