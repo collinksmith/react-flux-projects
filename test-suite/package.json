@@ -1,0 +1,26 @@
+{
+  "author": "Jack Callister",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "jest-cli": "^0.6.1",
+    "react-tools": "^0.13.3",
+    "webpack": "^1.11.0"
+  },
+  "scripts": {
+    "start": "npm run webpack & npm run serve",
+    "webpack": "node_modules/.bin/webpack -w",
+    "serve": "python -m SimpleHTTPServer",
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/support/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
+  }
+}
