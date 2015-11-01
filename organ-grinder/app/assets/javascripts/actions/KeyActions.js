@@ -1,14 +1,14 @@
 var KeyActions = {
   keyPressed: function (noteName) {
     AppDispatcher.dispatch({
-      actionType: "PRESS_KEY",
+      actionType: KeyConstants.PRESS_KEY,
       noteName: noteName
     });
   },
 
-  keyRelased: function (noteName) {
+  keyReleased: function (noteName) {
     AppDispatcher.dispatch({
-      actionType: "RELEASE_KEY",
+      actionType: KeyConstants.RELEASE_KEY,
       noteName: noteName
     });
   }
