@@ -9,10 +9,10 @@ var keyMappings = {
   76: 'C5'
 };
 
-$(document).on('keyup', function (e) {
+$(document).on('keydown', function (e) {
   KeyActions.keyPressed(keyMappings[e.keyCode]);
 });
 
-$(document).on('keydown', function (e) {
+$(document).on('keyup', function (e) {
   KeyActions.keyReleased(keyMappings[e.keyCode]);
 });

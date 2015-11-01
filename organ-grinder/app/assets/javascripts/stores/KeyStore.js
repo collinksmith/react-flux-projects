@@ -8,7 +8,8 @@
     },
 
     releaseKey: function (noteName) {
-      _data.push(noteName);
+      var idx = _data.indexOf(noteName);
+      _data.splice(idx, 1);
       this.emit('change');
     }
   });
