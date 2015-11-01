@@ -3,14 +3,24 @@
 
   root.KeyStore = $.extend({}, EventEmitter.prototype, {
     pressKey: function (noteName) {
-      _data.push(noteName);
-      this.emit('change');
+      if (_data.indexOf(noteName) === -1) {
+        _data.push(noteName);
+        this.emit('change');
+      }
     },
 
     releaseKey: function (noteName) {
       var idx = _data.indexOf(noteName);
       _data.splice(idx, 1);
       this.emit('change');
+    },
+
+    all: function () {
+      return _data.slice();
+    },
+
+    addChangeListener: function (callback) {
+      this.on('change', callback);
     }
   });
 

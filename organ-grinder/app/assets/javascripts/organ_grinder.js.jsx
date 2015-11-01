@@ -1,6 +1,6 @@
 $(function () {
   React.render(
-    <Key />,
+    <Organ />,
     document.getElementById('content')
   )
 });
