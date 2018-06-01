@@ -36,6 +36,7 @@ export default class GiphysSearch extends React.Component {
             Search
           </button>
         </form>
+        <GiphysIndex giphys={this.props.giphys} />
       </div>
     );
   }
